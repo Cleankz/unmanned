@@ -29,4 +29,12 @@ def Unmanned(L, N,track):
                     break
                 elif abs((track[j][1] + track[j][2]) - (i + l_time)) > track[j][1] and abs((track[j][1] + track[j][2]) -(i + l_time)) < track[j][2] :
                     break
+                elif abs((track[j][1] + track[j][2]) - (i + l_time)) > track[j][1] + track[j][2]:
+                    rem = abs(2* (track[j][1] + track[j][2]) - (i + l_time)) 
+                    if rem > track[j][1] and rem < track[j][2] + track[j][1]:
+                        break
+                    elif rem <= track[j][1]:
+                        time = time + abs(track[j][1] - rem)
+                        l_time = l_time + abs(track[j][1] - rem)
+                        break
     return time
